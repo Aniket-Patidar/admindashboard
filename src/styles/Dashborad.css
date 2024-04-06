@@ -313,7 +313,7 @@ body {
 
 /* MQ RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-@media screen and (max-width: 767px) {
+ @media screen and (max-width: 767px) {
 
   .page-header,
   .page-content {
@@ -398,7 +398,11 @@ body {
   .search-and-user .admin-profile svg {
     fill: var(--white);
   }
-}
+}  
+
+
+
+
 
 @media screen and (max-width: 400px) {
   .page-content .grid>article {

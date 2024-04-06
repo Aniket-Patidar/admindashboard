@@ -1,30 +1,31 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
 import { FaRegUser } from "react-icons/fa";
 import { LiaProductHunt } from "react-icons/lia";
+import { FiShoppingCart } from "react-icons/fi";
+import {
+  ResponsiveContainer,
+  BarChart,
+  CartesianGrid,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  Bar,
+} from "recharts";
+
+const data = [
+  { date: "Day 1", users: 10, productsSold: 5 },
+  { date: "Day 2", users: 15, productsSold: 8 },
+  { date: "Day 3", users: 20, productsSold: 10 },
+  { date: "Day 4", users: 18, productsSold: 7 },
+  { date: "Day 5", users: 25, productsSold: 12 },
+  { date: "Day 6", users: 22, productsSold: 9 },
+  { date: "Day 7", users: 28, productsSold: 15 },
+];
 
 function Dashboard() {
-  const data = [
-    { date: "Day 1", users: 10 },
-    { date: "Day 2", users: 15 },
-    { date: "Day 3", users: 20 },
-    { date: "Day 4", users: 18 },
-    { date: "Day 5", users: 25 },
-    { date: "Day 6", users: 22 },
-    { date: "Day 7", users: 28 },
-  ];
-
   return (
     <Layout>
       <>
@@ -49,27 +50,22 @@ function Dashboard() {
               </div>
               <div className="flex  items-center justify-center">
                 <div className="admin-content p-6 flex flex-col sm:flex-row gap-6">
-                  <div className="card h-[150px] w-full flex items-center justify-center flex-col sm:w-[300px] bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
-                  <LiaProductHunt className="mx-auto h-[40px] w-[40px] "  />
+                  <div className="card h-[150px] w-[250px] md:w-[280px] flex items-center justify-center flex-col sm:w-[300px] bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
+                    <LiaProductHunt className="mx-auto h-[40px] w-[40px] " />
                     <h2>Total Product : 28</h2>
                   </div>
-                  <div className="card h-[150px] w-[150px] sm:w-[300px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
-                  <FaRegUser className="mx-auto h-[40px] w-[40px] " />
+                  <div className="card h-[150px] w-[250px] md:w-[280px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
+                    <FaRegUser className="mx-auto h-[40px] w-[40px] " />
                     <h2>Total User : 15</h2>
                   </div>
-                  <div className="card h-[150px] w-[150px] sm:w-[300px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
-                    <img
-                      className="mx-auto h-[60px] w-[60px] "
-                      src="https://imgs.search.brave.com/XthXoPVROg4sXuYFXa0Bpx69Tb9yAqSmgGbvJcCDiRs/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL2NhcnQtcG5n/LWhkLXBuZy1pbWFn/ZS0yNTYucG5n"
-                      alt=""
-                    />
-
+                  <div className="card h-[150px] w-[250px] md:w-[280px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
+                    <FiShoppingCart className="mx-auto h-[40px] w-[40px] " />
                     <h2>All Orders : 42738 ₹</h2>
                   </div>
                 </div>
               </div>
               <ResponsiveContainer
-                className="mt-16 mx-auto"
+                className="mt-16 mx-auto lg:w-[80%] w-full"
                 width="80%"
                 height={300}
               >
@@ -87,7 +83,12 @@ function Dashboard() {
                   <YAxis />
                   <Tooltip />
                   <Legend />
-                  <Bar dataKey="users" fill="#4080ED" />
+                  <Bar dataKey="users" fill="#4080ED" name="Users" />
+                  <Bar
+                    dataKey="productsSold"
+                    fill="#82ca9d"
+                    name="Products Sold"
+                  />
                 </BarChart>
               </ResponsiveContainer>
             </div>

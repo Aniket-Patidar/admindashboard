@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../styles/Dashborad.css";
 import { Link } from "react-router-dom";
 
+import { GiHamburgerMenu } from "react-icons/gi";
+import { MdDashboard, MdOutlineCreate } from "react-icons/md";
+import { FaBorderStyle, FaRegUser } from "react-icons/fa";
+import { TbBrandProducthunt } from "react-icons/tb";
+import { CiLogout } from "react-icons/ci";
+import { IoLogOutOutline } from "react-icons/io5";
+
 function Sidebar() {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <>
+    <div className="">
       <svg style={{ display: "none" }}>
         <symbol id="logo" viewBox="0 0 140 59">
           <g>
@@ -108,23 +122,22 @@ function Sidebar() {
           />
         </symbol>
       </svg>
+
+      <SidebarSM isOpen={isOpen}></SidebarSM>
       <header className="page-header">
         <nav>
-          <Link to="/" aria-label="forecastr logo" className="logo">
-            <svg width={140} height={49}>
-              <use xlinkHref="#logo" />
-            </svg>
-          </Link>
-          <button
-            className="toggle-mob-menu"
-            aria-expanded="false"
-            aria-label="open menu"
-          >
-            <svg width={20} height={20} aria-hidden="true">
-              <use xlinkHref="#down" />
-            </svg>
-          </button>
-          <ul className="admin-menu">
+          <div className="flex justify-between w-full items-center ">
+            <Link to="/" aria-label="forecastr logo" className="logo">
+              <img src="../../public/logo.png" className="w-[90px]"></img>
+            </Link>
+
+            <GiHamburgerMenu
+              onClick={toggleSidebar}
+              className="md:hidden text-2xl"
+            />
+          </div>
+
+          <ul className="admin-menu" aria-label>
             <li className="menu-heading">
               <h3>Admin</h3>
             </li>
@@ -136,14 +149,14 @@ function Sidebar() {
                 <span>Dashboard</span>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/profile">
                 <svg>
                   <use xlinkHref="#users" />
                 </svg>
                 <span>Profile</span>
               </Link>
-            </li>
+            </li> */}
 
             <li>
               <Link to="/users">
@@ -178,7 +191,7 @@ function Sidebar() {
                 <span>Product</span>
               </Link>
             </li>
-          
+
             <li className="menu-heading">
               <h3>Settings</h3>
             </li>
@@ -203,33 +216,65 @@ function Sidebar() {
                 <svg>
                   <use xlinkHref="#charts" />
                 </svg>
-                <span>Charts</span>
+                <span>Logout</span>
               </a>
-            </li>
-            <li>
-              <div className="switch">
-                <input type="checkbox" id="mode" defaultChecked="" />
-                <label htmlFor="mode">
-                  <span />
-                  <span>Dark</span>
-                </label>
-              </div>
-              <button
-                className="collapse-btn"
-                aria-expanded="true"
-                aria-label="collapse menu"
-              >
-                <svg aria-hidden="true">
-                  <use xlinkHref="#collapse" />
-                </svg>
-                <span>Collapse</span>
-              </button>
             </li>
           </ul>
         </nav>
       </header>
-    </>
+    </div>
   );
 }
 
 export default Sidebar;
+
+const SidebarSM = ({ isOpen }) => {
+  return (
+    <div>
+      <div
+        className={`fixed   md:hidden inset-y-0 left-0 z-50 w-64 bg-[#242E42] text-white transition duration-300 ease-in-out transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="flex justify-between w-full items-center ">
+          <Link
+            to="/"
+            aria-label="forecastr logo"
+            className="logo mx-auto mt-[10px] text-white"
+          >
+            <img src="../../public/logo.png" className="w-[120px]"></img>
+          </Link>
+        </div>
+        <div className="py-[46px] px-[10px] space-y-[27px]">
+          <Link to="/" className="flex items-center gap-2">
+            <MdDashboard className="text-[16px]" />
+            <div className="text-[16px]">Dashboard</div>
+          </Link>
+          <Link to="/users" className="flex items-center gap-2">
+            <FaRegUser className="text-[16px]" />
+            <div className="text-[16px]">User</div>
+          </Link>
+          <Link to="/create-product" className="flex items-center gap-2">
+            <MdOutlineCreate className="text-[16px]" />
+            <div className="text-[16px]">Create</div>
+          </Link>
+          <Link to="/orders" className="flex items-center gap-2">
+            <FaBorderStyle className="text-[16px]" />
+            <div className="text-[16px]">Order</div>
+          </Link>
+          <Link to="/products" className="flex items-center gap-2">
+            <TbBrandProducthunt className="text-[16px]" />
+            <div className="text-[16px]">Product</div>
+          </Link>
+        </div>
+        <Link
+          to=""
+          className="absolute bottom-2 gap-2 px-[20px] flex items-center"
+        >
+          <IoLogOutOutline />
+          <p>Logout</p>
+        </Link>
+      </div>
+    </div>
+  );
+};

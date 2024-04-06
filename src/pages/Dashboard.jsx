@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "../components/Layout";
 
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import { FaRegUser } from "react-icons/fa";
+import { LiaProductHunt } from "react-icons/lia";
+
 function Dashboard() {
+  const data = [
+    { date: "Day 1", users: 10 },
+    { date: "Day 2", users: 15 },
+    { date: "Day 3", users: 20 },
+    { date: "Day 4", users: 18 },
+    { date: "Day 5", users: 25 },
+    { date: "Day 6", users: 22 },
+    { date: "Day 7", users: 28 },
+  ];
+
   return (
     <Layout>
       <>
@@ -26,37 +49,47 @@ function Dashboard() {
               </div>
               <div className="flex  items-center justify-center">
                 <div className="admin-content p-6 flex flex-col sm:flex-row gap-6">
-                  <div className="card h-[150px] w-full sm:w-[300px] bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
-                    <img
-                      className="mx-auto"
-                      src="/images/totalStudent-icons.png"
-                      alt=""
-                    />
+                  <div className="card h-[150px] w-full flex items-center justify-center flex-col sm:w-[300px] bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
+                  <LiaProductHunt className="mx-auto h-[40px] w-[40px] "  />
                     <h2>Total Product : 28</h2>
                   </div>
-                  <div className="card h-[150px] w-full sm:w-[300px] bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
-                    <img
-                      className="mx-auto"
-                      src="/https://imgs.search.brave.com/aXaLb3p1CqOhpCsftaQ-Rdz7UYW2J-xHXR5UQntj_sY/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL3VzZXItcG5n/LWljb24teW91bmct/dXNlci1pY29uLTI0/MDAucG5n"
-                      alt=""
-                    />
+                  <div className="card h-[150px] w-[150px] sm:w-[300px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
+                  <FaRegUser className="mx-auto h-[40px] w-[40px] " />
                     <h2>Total User : 15</h2>
                   </div>
-                  <div className="card h-[150px] w-full sm:w-[300px] bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
+                  <div className="card h-[150px] w-[150px] sm:w-[300px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
                     <img
-                      className="mx-auto"
-                      src="/images/fees-icon.png"
+                      className="mx-auto h-[60px] w-[60px] "
+                      src="https://imgs.search.brave.com/XthXoPVROg4sXuYFXa0Bpx69Tb9yAqSmgGbvJcCDiRs/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9wbHVz/cG5nLmNvbS9pbWct/cG5nL2NhcnQtcG5n/LWhkLXBuZy1pbWFn/ZS0yNTYucG5n"
                       alt=""
                     />
-                    <h2>All Orders  : 42738 ₹</h2>
+
+                    <h2>All Orders : 42738 ₹</h2>
                   </div>
                 </div>
               </div>
-              {/* Admin Panel Content */}
-              {/* Histogram */}
-              <canvas id="myChart" />
-              {/* Histogram */}
-              {/* Addmission query  */}
+              <ResponsiveContainer
+                className="mt-16 mx-auto"
+                width="80%"
+                height={300}
+              >
+                <BarChart
+                  data={data}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="date" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Bar dataKey="users" fill="#4080ED" />
+                </BarChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </div>

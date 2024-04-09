@@ -32,7 +32,7 @@ function Dashboard() {
         <style
           dangerouslySetInnerHTML={{
             __html:
-              "\n        .admin-content .card {\n            background: linear-gradient(to right, #007BFF 50%, #fff 50%);\n            background-size: 200% 100%;\n            background-position: right bottom;\n            transition: all 0.5s ease-out;\n        }\n\n        .admin-content .card:hover {\n            background-position: left bottom;\n        }\n\n        .admin-content .card h2 {\n            margin-top: 5px;\n        }\n\n        @media screen and (max-width: 854px) {\n            .admin-content .card h2 {\n                font-size: 14px;\n            }\n        }\n\n        table {\n            width: 100%;\n            border-collapse: collapse;\n            margin-top: 20px;\n        }\n\n        table,\n        th,\n        td {\n            border: 1px solid #ddd;\n        }\n\n        th,\n        td {\n            text-align: left;\n            padding: 8px;\n        }\n\n        th {\n            background-color: #303956;\n            color: white;\n        }\n\n        tr:nth-child(even) {\n            background-color: #f2f2f2;\n        }\n    ",
+              "\n        .admin-content .cart {\n            background: linear-gradient(to right, #007BFF 50%, #fff 50%);\n            background-size: 200% 100%;\n            background-position: right bottom;\n            transition: all 0.5s ease-out;\n        }\n\n        .admin-content .cart:hover {\n            background-position: left bottom;\n        }\n\n        .admin-content .cart h2 {\n            margin-top: 5px;\n        }\n\n        @media screen and (max-width: 854px) {\n            .admin-content .cart h2 {\n                font-size: 14px;\n            }\n        }\n\n        table {\n            width: 100%;\n            border-collapse: collapse;\n            margin-top: 20px;\n        }\n\n        table,\n        th,\n        td {\n            border: 1px solid #ddd;\n        }\n\n        th,\n        td {\n            text-align: left;\n            padding: 8px;\n        }\n\n        th {\n            background-color: #303956;\n            color: white;\n        }\n\n        tr:nth-child(even) {\n            background-color: #f2f2f2;\n        }\n    ",
           }}
         />
         <div className="main">
@@ -50,15 +50,15 @@ function Dashboard() {
               </div>
               <div className="flex  items-center justify-center">
                 <div className="admin-content p-6 flex flex-col sm:flex-row gap-6">
-                  <div className="card h-[150px] w-[250px] md:w-[280px] flex items-center justify-center flex-col sm:w-[300px] bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
+                  <div className="cart h-[150px] w-[250px] md:w-[280px] flex items-center justify-center flex-col sm:w-[300px] bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
                     <LiaProductHunt className="mx-auto h-[40px] w-[40px] " />
                     <h2>Total Product : 28</h2>
                   </div>
-                  <div className="card h-[150px] w-[250px] md:w-[280px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
+                  <div className="cart h-[150px] w-[250px] md:w-[280px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
                     <FaRegUser className="mx-auto h-[40px] w-[40px] " />
                     <h2>Total User : 15</h2>
                   </div>
-                  <div className="card h-[150px] w-[250px] md:w-[280px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
+                  <div className="cart h-[150px] w-[250px] md:w-[280px] flex items-center justify-center flex-col bg-[#fff] border-l-2 border-sky-500 rounded-lg text-center hover:text-[#fff]">
                     <FiShoppingCart className="mx-auto h-[40px] w-[40px] " />
                     <h2>All Orders : 42738 ₹</h2>
                   </div>
